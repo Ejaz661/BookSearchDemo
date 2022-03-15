@@ -17,6 +17,10 @@
 		A9BA819E27DFE63D0032A70B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BA819C27DFE63D0032A70B /* LaunchScreen.storyboard */; };
 		A9BA81A927DFE63E0032A70B /* BookSearchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA81A827DFE63E0032A70B /* BookSearchDemoTests.swift */; };
 		A9BA81B427DFE63E0032A70B /* BookSearchDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA81B327DFE63E0032A70B /* BookSearchDemoUITests.swift */; };
+		A9BA820627E003010032A70B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA820527E003010032A70B /* Extensions.swift */; };
+		A9BA820827E003180032A70B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA820727E003180032A70B /* APIManager.swift */; };
+		A9BA820A27E003270032A70B /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA820927E003270032A70B /* DBManager.swift */; };
+		A9BA820C27E003C70032A70B /* SearchedDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA820B27E003C60032A70B /* SearchedDatabaseModel.swift */; };
 		F4216F0B50CF14A907CD144C /* Pods_BookSearchDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312C6BFF86FFBD9920D0E122 /* Pods_BookSearchDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,10 @@
 		A9BA81AF27DFE63E0032A70B /* BookSearchDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookSearchDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BA81B327DFE63E0032A70B /* BookSearchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchDemoUITests.swift; sourceTree = "<group>"; };
 		A9BA81B527DFE63E0032A70B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BA820527E003010032A70B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A9BA820727E003180032A70B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A9BA820927E003270032A70B /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A9BA820B27E003C60032A70B /* SearchedDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedDatabaseModel.swift; sourceTree = "<group>"; };
 		BDE39581320E9E79D34BD6A3 /* Pods-BookSearchDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookSearchDemoTests.release.xcconfig"; path = "Target Support Files/Pods-BookSearchDemoTests/Pods-BookSearchDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7B660EBB21AFBA13026D026 /* Pods-BookSearchDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookSearchDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-BookSearchDemoTests/Pods-BookSearchDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D20F5605EE53356951A4B2D8 /* Pods_BookSearchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookSearchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +165,7 @@
 		A9BA81FF27DFF49B0032A70B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9BA820B27E003C60032A70B /* SearchedDatabaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +200,9 @@
 		A9BA820427DFF5580032A70B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A9BA820527E003010032A70B /* Extensions.swift */,
+				A9BA820727E003180032A70B /* APIManager.swift */,
+				A9BA820927E003270032A70B /* DBManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -446,9 +458,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BA820C27E003C70032A70B /* SearchedDatabaseModel.swift in Sources */,
 				A9BA819627DFE62D0032A70B /* LandingVC.swift in Sources */,
+				A9BA820A27E003270032A70B /* DBManager.swift in Sources */,
 				A9BA819227DFE62D0032A70B /* AppDelegate.swift in Sources */,
+				A9BA820827E003180032A70B /* APIManager.swift in Sources */,
 				A9BA819427DFE62D0032A70B /* SceneDelegate.swift in Sources */,
+				A9BA820627E003010032A70B /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
