@@ -28,8 +28,46 @@ class LandingVC: UIViewController {
     
     //MARK: Click actions
     @IBAction func btnOkayClicked(_ sender: UIButton) {
+        view.endEditing(true)
+        guard !(txtSearch.text?.isEmpty ?? true) else {
+            print("Please enter data")
+            return
+        }
+        
+        let searchStr = txtSearch.text!.replacingOccurrences(of: " ", with: "+")
+        let arr = DBManager.shared.getData(for: searchStr)
+        if !arr.isEmpty {
+           
+        } else {
+            apiSearch(searchStr: searchStr)
+        }
     }
     
+    //MARK: Custom methods
+    
+    /// Make a request to server and get search results
+    /// - Parameter searchStr: Search string
+    func apiSearch(searchStr: String) {
+        ShowHUD()
+        var comp = URLComponents(string: "https://openlibrary.org/search.json")!
+        comp.queryItems = [
+            .init(name: "q", value: searchStr),
+            .init(name: "limit", value: "10")
+        ]
+        
+        ApiManager.shared.makeRequest(request: URLRequest(url: comp.url!.absoluteURL)) { (result:Result<GeneralModel,Error>) in
+            HideHUD()
+            switch result {
+                case .success(let resp):
+                    DBManager.shared.addData(array: resp.docs, for: searchStr)
+                    
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
+   
 }
 
 //MARK: UITextFieldDelegate
