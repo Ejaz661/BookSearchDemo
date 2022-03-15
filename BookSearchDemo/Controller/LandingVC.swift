@@ -37,7 +37,7 @@ class LandingVC: UIViewController {
         let searchStr = txtSearch.text!.replacingOccurrences(of: " ", with: "+")
         let arr = DBManager.shared.getData(for: searchStr)
         if !arr.isEmpty {
-           
+            goToDeatilVC(data: arr)
         } else {
             apiSearch(searchStr: searchStr)
         }
@@ -60,10 +60,22 @@ class LandingVC: UIViewController {
             switch result {
                 case .success(let resp):
                     DBManager.shared.addData(array: resp.docs, for: searchStr)
-                    
+                    self.goToDeatilVC(data: resp.docs)
                 case .failure(let error):
                     print(error)
             }
+        }
+    }
+    
+    /// Open detail screen to show search result
+    /// - Parameter data: Array of search result
+    func goToDeatilVC(data: [SearchedDatabaseModel]) {
+        DispatchQueue.main.async {
+            let vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "SearchListVC") as! SearchListVC
+            vc.arrSearchedData = data
+            vc.title = data.first?.searched?.replacingOccurrences(of: "+", with: " ")
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true)
         }
     }
     
